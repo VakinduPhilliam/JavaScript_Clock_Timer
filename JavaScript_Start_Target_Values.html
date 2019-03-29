@@ -1,0 +1,41 @@
+<div id="startValuesAndTargetExample">
+
+    <div class="values"></div>
+    <div class="progress_bar">.</div>
+
+</div>
+
+<script src="examples.min.js"></script>
+<script>
+
+/* Creating a simple JavaScript Timer Clock. */
+/* A Clock Timer with predefined Start and Target Values. */
+/* When you start the timer, you can pass a javascript object with configuration values. */
+/* In this examples, you pass the start value (90 seconds) and the target values (120 seconds). */
+/* As you can see, the timer starts with 1 minute and 30 seconds and stops at 2 minutes. */
+/* You can pass the units you like in these two parameters (days, hours, minutes, seconds and secondTenths) */
+/* and the Timer will convert these units into the correct ones for each counter. */
+/* When the counter achieves the target, it will dispatch the targetAchieved event. */
+
+var timer = new Timer();
+
+timer.start({precision: 'seconds', startValues: {seconds: 90}, target: {seconds: 120}});
+
+$('#startValuesAndTargetExample .values').html(timer.getTimeValues().toString());
+
+timer.addEventListener('secondsUpdated', function (e) {
+
+    $('#startValuesAndTargetExample .values').html(timer.getTimeValues().toString());
+
+    $('#startValuesAndTargetExample .progress_bar').html($('#startValuesAndTargetExample .progress_bar').html() + '.');
+
+});
+
+timer.addEventListener('targetAchieved', function (e) {
+
+    $('#startValuesAndTargetExample .progress_bar').html('COMPLETE!!');
+
+});
+
+</script>
+              

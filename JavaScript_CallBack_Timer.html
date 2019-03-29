@@ -1,0 +1,27 @@
+<div id="callbackExample">
+
+    <div class="values"></div>
+
+</div>
+              
+<script src="examples.min.js"></script>
+<script>
+
+/* Creating a simple JavaScript Timer Clock. */
+/* CallBack Timer. */
+/* If you prefer a callback instead of event listeners, you can pass a function with the callback parameter, */
+/* and this callback will be executed every time the clock refresh. */
+
+var timer = new Timer();
+
+timer.start({callback: function (timer) {
+
+    $('#callbackExample .values').html(
+        'Hello, I am a callback and I am counting time: ' + timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths'])
+    );
+
+  }
+
+});   
+
+</script>

@@ -1,0 +1,27 @@
+<div id="secondTenthsExample">
+
+    <div class="values"></div>
+
+</div>
+
+<script src="examples.min.js"></script>
+<script>
+
+
+/* Creating a simple JavaScript Timer Clock. */
+/* Precision Timer: Interval of Tenth of Seconds. */
+/* The precision of the timer can be changed with the precision parameter. */
+/* The accepted values of the precision parameters are seconds (default value), tenth of seconds, minutes and hours. */
+/* In this example is passed precision with the value secondTenths. The timer will update the counters 10 times per second. */
+
+var timer = new Timer();
+
+timer.start({precision: 'secondTenths'});
+
+timer.addEventListener('secondTenthsUpdated', function (e) {
+
+    $('#secondTenthsExample .values').html(timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']));
+
+});   
+
+</script>

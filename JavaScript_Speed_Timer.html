@@ -1,0 +1,43 @@
+<script>
+
+/* JavaScript Speed Counter. */
+/* Unlike the other examples, this script demonstrates the iteration of basic numbers using JavaScript. */
+/* A case in point is the iteration of speed numbers in a Speedometer or Accelerometer. */
+/* Written by Vakindu Philliam. */
+
+function startTimer(start, display) {
+
+    var timer = start;
+
+    setInterval(function () {
+
+        display.textContent = timer;
+
+        if (++timer < 0) {
+            timer = start;
+        }
+
+    }, 50);
+}
+
+//Load Function into HTML DOM
+
+window.onload = function () {
+
+//Inititialize the count, the count here begins at 200
+
+    var speed = 200,
+        display = document.querySelector('#time');
+
+//Run count function
+
+    startTimer(speed, display);
+};
+
+</script>
+
+<body>
+
+    <div> Speed: <span id="time"> 200</span> km/hr</div>
+
+</body>

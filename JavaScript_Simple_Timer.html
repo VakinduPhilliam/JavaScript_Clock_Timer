@@ -1,0 +1,19 @@
+<div id="basicUsage">00:00:00</div>
+
+<script src="examples.min.js"></script>
+<script>
+
+/* Creating a simple JavaScript Timer Clock. */
+/* A simple Clock Timer. */
+
+var timer = new Timer();
+
+timer.start();
+
+timer.addEventListener('secondsUpdated', function (e) {
+
+    $('#basicUsage').html(timer.getTimeValues().toString());
+
+});
+        
+</script>

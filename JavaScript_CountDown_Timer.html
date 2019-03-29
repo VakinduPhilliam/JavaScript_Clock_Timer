@@ -1,0 +1,33 @@
+<div id="countdownExample">
+
+    <div class="values"></div>
+
+</div>
+
+<script src="examples.min.js"></script>
+<script>
+
+/* Creating a simple JavaScript Timer Clock. */
+/* Countdown Timer. */
+/* The Clock can act as a countdown timer if the countdown parameters are passed to the start method. */
+/* The minimum target value of the countdown timer is 0. */
+
+var timer = new Timer();
+
+timer.start({countdown: true, startValues: {seconds: 30}});
+
+$('#countdownExample .values').html(timer.getTimeValues().toString());
+
+timer.addEventListener('secondsUpdated', function (e) {
+
+    $('#countdownExample .values').html(timer.getTimeValues().toString());
+
+});
+
+timer.addEventListener('targetAchieved', function (e) {
+
+    $('#countdownExample .values').html('TIME OUT!!');
+
+});
+
+</script>
